@@ -1,0 +1,62 @@
+=================================================================
+  GNSS ST-GNN Spoofing Detector v2.1
+=================================================================
+  Mode: ST-GNN (full)
+  Baseline MLP: ON
+  EPOCHS=100  BS=32  LR=0.0005  HIDDEN=128  WINDOW=10
+🧹  Cleared cached dataset — rebuilding …
+🏗  Building temporal graph dataset …
+   Window length : 10 snapshots × 0.5 s = 5.0 s
+   Node features : 6  Edge features : 4
+   Train files   : ['cleanDynamic.bin', 'cleanStatic.bin', 'ds4.bin']
+   📦  cleanStatic80.bin         file_label=0  onset=infs  [TEST]
+   📦  cleanStatic.bin           file_label=0  onset=infs  [TRAIN]
+   📦  cleanDynamic.bin          file_label=0  onset=infs  [TRAIN]
+   📦  ds1.bin                   file_label=1  onset=98.0s  [TEST]
+   📦  ds2.bin                   file_label=1  onset=90.0s  [TEST]
+   📦  ds3.bin                   file_label=1  onset=90.0s  [TEST]
+   📦  ds4.bin                   file_label=1  onset=90.0s  [TRAIN]
+   📦  ds5.bin                   file_label=1  onset=98.0s  [TEST]
+   📦  ds6.bin                   file_label=1  onset=90.0s  [TEST]
+   📦  ds7.bin                   file_label=1  onset=100.0s  [TEST]
+   📦  ds8.bin                   file_label=1  onset=100.0s  [TEST]
+
+💾  Saving 7526 windows  (train=2534, test=4992) …
+✅  Dataset saved.
+   Train: clean=1827  spoof=707
+   Test : clean=151  spoof=4841
+   ⚠ Class imbalance ratio = 2.6:1
+
+📦  Dataset: 7526 windows  |  train=2534  test=4992
+   🖥  Device: cuda
+   [ST-GNN] ⚖ Imbalance 2.6:1 → weights [1.0, 2.584158420562744]
+
+🚀  [ST-GNN] Training for up to 100 epochs …
+
+  [ST-GNN] Epoch 001/100 | Loss 0.2877 | Acc 22.2% | DR 19.7% | FAR 0.00%
+  [ST-GNN] Epoch 010/100 | Loss 0.0282 | Acc 20.9% | DR 18.5% | FAR 0.00%
+  [ST-GNN] Epoch 020/100 | Loss 0.0202 | Acc 27.1% | DR 24.8% | FAR 0.00%
+  [ST-GNN] Epoch 030/100 | Loss 0.0066 | Acc 23.6% | DR 21.3% | FAR 0.00%
+  [ST-GNN] Epoch 040/100 | Loss 0.0006 | Acc 21.1% | DR 18.6% | FAR 0.00%
+  [ST-GNN] Epoch 050/100 | Loss 0.0000 | Acc 20.5% | DR 18.0% | FAR 0.00%
+  [ST-GNN] Epoch 060/100 | Loss 0.0002 | Acc 27.0% | DR 24.7% | FAR 0.00%
+  [ST-GNN] Epoch 070/100 | Loss 0.0000 | Acc 24.0% | DR 21.7% | FAR 0.00%
+  [ST-GNN] Epoch 080/100 | Loss 0.0000 | Acc 21.4% | DR 19.0% | FAR 0.00%
+
+  [ST-GNN] ⏹  Early stop at epoch 85
+
+=================================================================
+  [ST-GNN] Per-scenario zero-shot evaluation
+=================================================================
+  Scenario                    N   DR (%)  FAR (%)  Status
+  ------------------------------------------------------------
+  cleanStatic80             151     N/A     0.00%  ⚠️ 
+  ds1                       714    11.9%     N/A   ⚠️ 
+  ds2                       705    52.8%     N/A   ⚠️ 
+  ds3                       706    29.0%     N/A   ⚠️ 
+  ds5                       627     9.7%     N/A   ⚠️ 
+  ds6                       627    43.5%     N/A   ⚠️ 
+  ds7                       731     2.1%     N/A   ⚠️ 
+  ds8                       731     1.9%     N/A   ⚠️ 
+=================================================================
+   📊  [ST-GNN] Plots saved → C:\Users\27170\WPSDrive\383859682\WPS云盘\Graduate\Graduation Project\99 个人成果\论文\2026.01_小论文\ION GNSS+ 2026\Code Project\gnss_gnn_v2\logs\20260326_1317/
